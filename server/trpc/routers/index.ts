@@ -1,19 +1,17 @@
 import { z } from "zod";
 import { publicProcedure, router } from "../trpc";
+import { videoRouter } from "./video";
+import { playlistRouter } from "./playlist";
+import { commentRouter } from "./comment";
+import { videoEngagementRouter } from "./videoEngagement";
+import { userRouter } from "./user";
 
 export const appRouter = router({
-  hello: publicProcedure
-    .meta({
-      openapi: {
-        method: "GET",
-        path: "/say-hello",
-      },
-    })
-    .input(z.object({ name: z.string() }))
-    .output(z.object({ greeting: z.string() }))
-    .query(({ input }) => {
-      return { greeting: `Hello ${input.name}!` };
-    }),
+  user: userRouter,
+  video: videoRouter,
+  playlist: playlistRouter,
+  comment: commentRouter,
+  videoEngagement: videoEngagementRouter,
 });
 
 // export type definition of API

@@ -1,9 +1,9 @@
 import { z } from "zod";
 import { protectedProcedure, publicProcedure, router } from "../trpc";
 
-export const appointmentsRouter = router({
-  addPlaylist: protectedProcedure.input({}).query(() => {}),
-  removePlaylist: protectedProcedure.input({}).query(() => {}),
-  getPlaylistById: publicProcedure.input({}).query(async () => {}),
-  getPlaylistsByUserId: publicProcedure.input({}).query(() => {}),
+export const playlistRouter = router({
+  addPlaylist: protectedProcedure.input(z.object({})).query(() => {}),
+  removePlaylist: protectedProcedure.input(z.object({})).query(() => {}),
+  getPlaylistById: publicProcedure.input(z.object({})).query(async () => {}),
+  getPlaylistsByUserId: publicProcedure.input(z.object({})).query(() => {}),
 });

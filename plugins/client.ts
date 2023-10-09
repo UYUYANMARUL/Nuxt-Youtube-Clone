@@ -1,6 +1,6 @@
-import { createTRPCNuxtClient, httpBatchLink } from "trpc-nuxt/client"
+import { createTRPCNuxtClient, httpBatchLink } from "trpc-nuxt/client";
 
-import type { AppRouter } from "server/trpc/routers"
+import type { AppRouter } from "server/trpc/routers";
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const client = createTRPCNuxtClient<AppRouter>({
@@ -9,11 +9,14 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         url: "/api/trpc",
       }),
     ],
-  })
-  async function test() {
-    console.log("he")
-    const data = await client.hello.useQuery({ text: "asd" })
-    console.log(data)
+  });
+  async function test(value) {
+    const data = await client.video.getVideosBySearch.useQuery({
+      search: value,
+    });
+
+    console.log("h");
+    console.log(data);
   }
-  return { provide: { client } }
-})
+  return { provide: { client, test } };
+});

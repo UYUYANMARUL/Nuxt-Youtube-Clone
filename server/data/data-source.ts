@@ -2,6 +2,8 @@ import { Playlist } from "../models/Playlist";
 import { User } from "../models/User";
 import { Video } from "../models/Video";
 import { DataSource } from "typeorm";
+import { Seed } from "./seeder";
+import { LikeTable } from "../models/LikeTable";
 
 export const AppDataSource = new DataSource({
   schema: "public",
@@ -11,13 +13,17 @@ export const AppDataSource = new DataSource({
   username: "postgres",
   password: "123456",
   database: "mydb",
-  entities: [User, Video, Playlist],
-  migrations: ["server/migrations/**/*.{ts,js}"],
+  entities: [User, Video, Playlist, LikeTable],
+  migrations: ["server/migrations/**.js"],
 });
 
 AppDataSource.initialize()
-  .then(() => {
+  .then(async () => {
     console.log("Data Source has been initialized!");
+
+    console.log("Seeding ...");
+    await Seed(AppDataSource);
+    console.log("Seeding Completed");
   })
   .catch((err) => {
     console.error("Error during Data Source initialization", err);

@@ -1,39 +1,50 @@
 import {
   Column,
   Entity,
+  JoinColumn,
+  JoinTable,
   ManyToMany,
   ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  RelationCount,
 } from "typeorm";
 import { User } from "./User";
 import { Playlist } from "./Playlist";
+import { BaseEntity } from "./base/base-entity";
+import { LikeTable } from "./LikeTable";
 
 @Entity()
-export class Video {
-  @PrimaryGeneratedColumn("uuid")
-  id: String;
+export class Video extends BaseEntity {
+  @Column("text", { unique: true })
+  public title: String;
 
   @Column("text", { nullable: true })
-  title: String;
+  public thumbnailUrl: String;
 
   @Column("text", { nullable: true })
-  thumbnailUrl: String;
+  public description: String;
 
-  @Column("text", { nullable: true })
-  description: String;
-
-  @Column("text", { nullable: true })
-  videoUrl: String;
+  @Column("text")
+  public videoUrl: String;
 
   @Column("boolean")
-  published: boolean;
+  public published: boolean;
 
   @ManyToOne(() => User, (user: User) => user.videos)
-  user: User;
+  @JoinColumn({ name: "userId" })
+  public user: User;
+
+  @Column("uuid")
+  public userId: String;
+
+  @OneToMany(() => LikeTable, (likeTable: LikeTable) => likeTable.user)
+  public likeTable: LikeTable[];
 
   @ManyToMany(() => Playlist, (playlist) => playlist.videos)
-  playlists: Playlist[];
+  @JoinTable({ name: "playlist-videos" })
+  public playlists: Playlist[];
 
   // id               String             @id @default(cuid())
   //   userId           String
