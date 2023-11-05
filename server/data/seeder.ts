@@ -3,14 +3,6 @@ import { DataSource } from "typeorm";
 
 export async function Seed(db: DataSource) {
   try {
-    const user = db.manager.create(User, {
-      userName: "asdaaaaad",
-      thirdname: "asaaaaadd",
-      email: "tesaaaat",
-      videos: [{ title: "asdasdasd", published: false, playlists: [] }],
-    });
-    console.log(user);
-
     // let data = await AppDataSource.createQueryBuilder()
     //   .insert()
     //   .into(User)

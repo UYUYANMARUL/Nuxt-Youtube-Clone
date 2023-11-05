@@ -28,6 +28,7 @@ export class Playlist extends BaseEntity {
   @JoinColumn()
   user: User;
 
+  @Column("uuid")
   userId: String;
 
   // id               String             @id @default(cuid())

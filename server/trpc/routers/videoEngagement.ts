@@ -36,6 +36,9 @@ export const videoEngagementRouter = router({
         })
         .select(["LikeCondition"])
         .getOne();
+
+      console.log(result);
+      return {};
     }),
 
   addLike: protectedProcedure

@@ -24,6 +24,12 @@ export class User extends BaseEntity {
   @Column("text", { unique: true })
   public email: String;
 
+  @Column("text")
+  public password: String;
+
+  @Column("text", { unique: true })
+  public passwordrnd: String;
+
   @Column("date", { nullable: true })
   public emailVerified: Date;
 

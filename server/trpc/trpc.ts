@@ -39,7 +39,9 @@ const enforceUserIsAuthed = t.middleware(async ({ ctx, next }) => {
   const user = await ctx.db
     .getRepository(User)
     .createQueryBuilder("user")
-    .where("user.userName = :userName", { userName: ctx.session.user.userName })
+    .where("user.userName = :userName", {
+      userName: ctx.session.user.userName,
+    })
     .getOne();
 
   if (!user) {
@@ -53,7 +55,6 @@ const enforceUserIsAuthed = t.middleware(async ({ ctx, next }) => {
     },
   });
 });
-
 export const publicProcedure = t.procedure;
 
 export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);

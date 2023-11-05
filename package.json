@@ -24,6 +24,17 @@
     "trpc-openapi": "^1.2.0",
     "ts-node": "^10.9.1",
     "typeorm": "^0.3.17",
+    "typescript": "^5.2.2",
     "zod": "^3.22.2"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^5.0.1",
+    "@types/cookie": "^0.5.2",
+    "@types/jsonwebtoken": "^9.0.1",
+    "argon2": "^0.30.3",
+    "bcrypt": "^5.1.1",
+    "cookie": "^0.5.0",
+    "crypto-random-string": "^5.0.0",
+    "jsonwebtoken": "^9.0.0"
   }
 }
