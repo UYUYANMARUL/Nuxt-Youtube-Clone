@@ -12,6 +12,7 @@ import { Video } from "./Video";
 import { BaseEntity } from "./base/base-entity";
 import { Playlist } from "./Playlist";
 import { LikeTable } from "./LikeTable";
+import { FollowerTable } from "./FollowerTable";
 
 @Entity()
 export class User extends BaseEntity {
@@ -52,6 +53,18 @@ export class User extends BaseEntity {
 
   @OneToMany(() => LikeTable, (likeTable: LikeTable) => likeTable.user)
   public likeTable: LikeTable[];
+
+  @OneToMany(
+    () => FollowerTable,
+    (followerTable: FollowerTable) => followerTable.user,
+  )
+  public following: FollowerTable[];
+
+  @OneToMany(
+    () => FollowerTable,
+    (followerTable: FollowerTable) => followerTable.following,
+  )
+  public followers: FollowerTable[];
 
   //  handle                  String?                  @unique
   //  videoEngagements        VideoEngagement[]

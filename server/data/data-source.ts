@@ -4,6 +4,7 @@ import { Video } from "../models/Video";
 import { DataSource } from "typeorm";
 import { Seed } from "./seeder";
 import { LikeTable } from "../models/LikeTable";
+import { FollowerTable } from "../models/FollowerTable";
 
 export const AppDataSource = new DataSource({
   schema: "public",
@@ -13,7 +14,7 @@ export const AppDataSource = new DataSource({
   username: "postgres",
   password: "123456",
   database: "mydb",
-  entities: [User, Video, Playlist, LikeTable],
+  entities: [User, Video, Playlist, LikeTable, FollowerTable],
   migrations: ["server/migrations/**.js"],
 });
 
