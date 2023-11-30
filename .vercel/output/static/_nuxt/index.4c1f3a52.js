@@ -1,1 +1,0 @@
-import{k as o,l as e,F as s,j as a,u as c}from"./entry.c7b9fe44.js";const l=e("div",null,null,-1),i={__name:"index",setup(r){const{$test:t}=c();function n(){console.log("tester"),t()}return(u,_)=>(a(),o(s,null,[l,e("button",{onClick:n},"aaa")],64))}};export{i as default};
