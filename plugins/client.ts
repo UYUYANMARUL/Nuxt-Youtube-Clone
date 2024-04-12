@@ -14,9 +14,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     const data = await client.video.getVideosBySearch.useQuery({
       search: value,
     });
-
-    console.log("h");
-    console.log(data);
   }
   return { provide: { client, test } };
 });

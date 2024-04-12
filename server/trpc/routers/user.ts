@@ -262,4 +262,28 @@ export const userRouter = router({
 
       return {};
     }),
+
+  forgotPassword: publicProcedure
+    .input(z.object({ email: z.string() }))
+    .meta({
+      openapi: {
+        method: "GET",
+        path: "/auth/forgotPassword",
+        tags: ["users"],
+      },
+    })
+    .output(z.object({}))
+    .query(async ({ ctx, input }) => {}),
+
+  resetPassword: publicProcedure
+    .input(z.object({ password_reset_token: z.string() }))
+    .meta({
+      openapi: {
+        method: "POST",
+        path: "/auth/resetPassword",
+        tags: ["users"],
+      },
+    })
+    .output(z.object({}))
+    .mutation(async ({ ctx, input }) => {}),
 });

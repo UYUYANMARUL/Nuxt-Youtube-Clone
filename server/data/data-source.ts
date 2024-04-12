@@ -7,7 +7,7 @@ import { LikeTable } from "../models/LikeTable";
 import { FollowerTable } from "../models/FollowerTable";
 
 export const AppDataSource = new DataSource({
-  schema: "public",
+    schema: "public",
   type: "postgres",
   host: "localhost",
   port: 5432,

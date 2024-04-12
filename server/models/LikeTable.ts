@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
 import { User } from "./User";
-import { Video } from "./Video";
+  import { Video } from "./Video";
 import { BaseEntity } from "./base/base-entity";
 
 export enum LikeCondition {

@@ -1,28 +1,20 @@
 <template>
-  <div></div>
-  <input v-model="inp" />
-  <button @click="run">aaa</button>
-  <img
-    src="https://picsum.photos/id/237/200/300"
-    @click="display('/test')"
-    :style="{ viewTransitionName: 'test' }"
-  />
+  <div>
+    <VideoGrid></VideoGrid>
+  </div>
+  aasd
+  <input v-model="inp" @input="test" />
 </template>
 <script setup>
-//
-const { $test } = useNuxtApp();
-
 const inp = ref("");
 
-const router = useRouter();
+console.log(inp);
 
-function display(path) {
-  if (!document.startViewTransition) {
-    router.push({ path });
-  } else {
-    document.startViewTransition(() => router.push({ path }));
-  }
-}
+let variable = false;
+async function test() {}
+const { $test } = useNuxtApp();
+
+const router = useRouter();
 
 function run() {}
 </script>

@@ -1,14 +1,11 @@
 <template>
   <div></div>
 
-  <input v-model="inp" />
+    <input v-model="inp" />
 
   <input v-model="inp" />
-  <button @click="run">aaa</button>
 
-  <button @click="run">aaa</button>
-
-  <button @click="run">aaa</button>
+  <button @click="hi">hi</button>
   <img
     src="https://picsum.photos/id/237/400/600"
     :style="{ viewTransitionName: 'test' }"
@@ -16,6 +13,11 @@
   />
 </template>
 <script setup>
+function hi() {
+  setTimeout(() => {
+    console.log("hi");
+  }, 3000);
+}
 //
 const { $test } = useNuxtApp();
 

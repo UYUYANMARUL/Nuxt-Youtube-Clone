@@ -19,6 +19,7 @@ export async function Seed(db: DataSource) {
     //   .execute();
     // console.log(data);
   } catch (err) {
+    const array = [1, 2, 3];
     console.log(`Something Went Wrong Err : ${err}`);
   }
 }

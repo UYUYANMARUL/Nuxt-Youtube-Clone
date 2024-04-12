@@ -55,6 +55,9 @@ export const videoRouter = router({
     )
     .output(z.array(z.object({ id: z.string() })))
     .query(async ({ ctx, input }) => {
+      const runtime = useRuntimeConfig();
+
+      console.log(runtime.jwt_secret_key);
       console.log(input.search);
       const videos = await ctx.db
         .getRepository(Video)
